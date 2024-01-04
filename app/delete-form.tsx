@@ -1,5 +1,5 @@
 'use client'
-
+// @ts-ignore
 import { useFormState, useFormStatus } from 'react-dom'
 import { deleteTodo } from '@/app/actions'
 
@@ -11,7 +11,7 @@ function DeleteButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button type="submit" aria-disabled={pending}>
+    <button type='submit' aria-disabled={pending}>
       Delete
     </button>
   )
@@ -22,10 +22,10 @@ export function DeleteForm({ id, todo }: { id: number; todo: string }) {
 
   return (
     <form action={formAction}>
-      <input type="hidden" name="id" value={id} />
-      <input type="hidden" name="todo" value={todo} />
+      <input type='hidden' name='id' value={id} />
+      <input type='hidden' name='todo' value={todo} />
       <DeleteButton />
-      <p aria-live="polite" className="sr-only" role="status">
+      <p aria-live='polite' className='sr-only' role='status'>
         {state?.message}
       </p>
     </form>

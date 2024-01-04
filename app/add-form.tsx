@@ -1,6 +1,8 @@
 'use client'
 
-import { experimental_useFormState as useFormState } from 'react-dom'
+// @ts-expect-error
+import { useFormState } from 'react-dom'
+// @ts-expect-error
 import { useFormStatus } from 'react-dom'
 import { createTodo } from '@/app/actions'
 
@@ -12,7 +14,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button type="submit" aria-disabled={pending}>
+    <button type='submit' aria-disabled={pending}>
       Add
     </button>
   )
@@ -23,10 +25,10 @@ export function AddForm() {
 
   return (
     <form action={formAction}>
-      <label htmlFor="todo">Enter Task</label>
-      <input type="text" id="todo" name="todo" required />
+      <label htmlFor='todo'>Enter Task</label>
+      <input type='text' id='todo' name='todo' required />
       <SubmitButton />
-      <p aria-live="polite" className="sr-only" role="status">
+      <p aria-live='polite' className='sr-only' role='status'>
         {state?.message}
       </p>
     </form>
